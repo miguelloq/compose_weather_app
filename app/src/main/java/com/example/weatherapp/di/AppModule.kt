@@ -1,5 +1,6 @@
 package com.example.weatherapp.di
 
+import com.example.weatherapp.core.Constants
 import com.example.weatherapp.data.remote.WeatherRemoteDatasource
 import dagger.Module
 import dagger.Provides
@@ -14,7 +15,9 @@ object AppModule{
 
     @Provides
     @Singleton
-    fun providePaprikaApi():WeatherRemoteDatasource{
-        //Refrofit.bu
+    fun provideWeatherRemoteDatasource():WeatherRemoteDatasource{
+        Retrofit.Builder()
+            .baseUrl(Constants.OPEN_WEATHER_BASE_URL)
+            .addConverterFactory(GsonConve)
     }
 }

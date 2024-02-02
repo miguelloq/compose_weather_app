@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.flow
 import java.io.IOException
 import javax.inject.Inject
 
-class GetRegionInformationUseCase @Inject constructor(
+class GetRegionsInformationUseCase @Inject constructor(
     private  val repository: IRegionRepository
 ) {
 
