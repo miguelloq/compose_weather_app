@@ -6,6 +6,7 @@ import androidx.annotation.RequiresExtension
 import com.example.weatherapp.core.Resource
 import com.example.weatherapp.data.model.RegionModel
 import com.example.weatherapp.data.model.WeatherModel
+import com.example.weatherapp.domain.repository.IRegionRepository
 import com.example.weatherapp.domain.repository.IWeatherRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -17,16 +18,15 @@ class GetWeatherInformationUseCase @Inject constructor(
     private val repository: IWeatherRepository
 ){
 
-    @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
     operator fun invoke(region: RegionModel): Flow<Resource<WeatherModel>> = flow{
         try {
             emit(Resource.Loading<WeatherModel>())
             val weather = repository.getWeatherInformation(region)
             emit(Resource.Success<WeatherModel>(weather))
-        }catch (e:HttpException){
-            emit(Resource.Error<WeatherModel>("Ba"))
         }catch (e:IOException){
             emit(Resource.Error<WeatherModel>("Ba2"))
+        }catch (e:Exception){
+            emit(Resource.Error<WeatherModel>("Erro desconhecido poggers"))
         }
     }
 }

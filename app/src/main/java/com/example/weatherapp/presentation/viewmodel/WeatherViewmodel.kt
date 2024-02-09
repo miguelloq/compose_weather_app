@@ -2,19 +2,24 @@ package com.example.weatherapp.presentation.viewmodel
 
 import android.os.Build
 import androidx.annotation.RequiresExtension
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.weatherapp.core.Constants
 import com.example.weatherapp.core.Resource
 import com.example.weatherapp.data.model.RegionModel
 import com.example.weatherapp.domain.usecase.GetWeatherInformationUseCase
 import com.example.weatherapp.presentation.state.RegionState
 import com.example.weatherapp.presentation.state.WeatherState
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
-@RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
+
+@HiltViewModel
 class WeatherViewmodel @Inject constructor(
     private val getWeatherInformationUseCase: GetWeatherInformationUseCase,
     private val savedStateHandle:SavedStateHandle
@@ -24,9 +29,11 @@ class WeatherViewmodel @Inject constructor(
     val state: State<WeatherState> = _state
 
     init{
-        savedStateHandle.get<RegionModel>(Constants.PARAM_REGION_ID)?.let {
-            getWeatherInformation(it)
-        }
+        val tes= RegionModel("a","b","c",1.0,1.0)
+//        savedStateHandle.get<RegionModel>(Constants.PARAM_REGION_ID)?.let {
+//            getWeatherInformation(it)
+//        }
+        getWeatherInformation(tes)
     }
 
 
@@ -41,6 +48,6 @@ class WeatherViewmodel @Inject constructor(
                 }
                 is Resource.Loading -> {_state.value = WeatherState(isLoading = true)}
             }
-        }
+        }.launchIn(viewModelScope)
     }
 }

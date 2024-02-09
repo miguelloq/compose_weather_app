@@ -7,6 +7,7 @@ import com.example.weatherapp.data.repository.test.RegionRepositoryTest
 import com.example.weatherapp.data.repository.test.WeatherRepositoryTest
 import com.example.weatherapp.domain.repository.IRegionRepository
 import com.example.weatherapp.domain.repository.IWeatherRepository
+import com.example.weatherapp.domain.usecase.GetWeatherInformationUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
