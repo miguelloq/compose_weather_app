@@ -4,7 +4,7 @@ import android.net.http.HttpException
 import android.os.Build
 import androidx.annotation.RequiresExtension
 import com.example.weatherapp.core.Resource
-import com.example.weatherapp.data.model.RegionModel
+import com.example.weatherapp.domain.model.RegionModel
 import com.example.weatherapp.domain.repository.IRegionRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

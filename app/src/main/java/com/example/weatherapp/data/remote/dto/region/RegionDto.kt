@@ -1,11 +1,11 @@
 package com.example.weatherapp.data.remote.dto.region
 
-import com.example.weatherapp.data.model.RegionModel
+import com.example.weatherapp.domain.model.RegionModel
 
 class RegionDto : ArrayList<RegionDtoItem>(){
     fun toRegionModelList():List<RegionModel>{
 
-        fun regionDtoItemToRegionModel(dtoItem:RegionDtoItem):RegionModel{
+        fun regionDtoItemToRegionModel(dtoItem:RegionDtoItem): RegionModel {
             return RegionModel(
                 city = dtoItem.name,
                 state = dtoItem.state,

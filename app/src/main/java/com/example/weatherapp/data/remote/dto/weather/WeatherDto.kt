@@ -1,6 +1,6 @@
 package com.example.weatherapp.data.remote.dto.weather
 
-import com.example.weatherapp.data.model.WeatherModel
+import com.example.weatherapp.domain.model.WeatherModel
 
 data class WeatherDto(
     val base: String,
@@ -21,7 +21,7 @@ data class WeatherDto(
         city:String,
         state:String,
         country:String
-    ):WeatherModel{
+    ): WeatherModel {
        return WeatherModel(
            city =city,
            state =state,

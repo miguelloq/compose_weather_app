@@ -1,7 +1,7 @@
 package com.example.weatherapp.data.repository.test
 
-import com.example.weatherapp.data.model.RegionModel
-import com.example.weatherapp.data.model.WeatherModel
+import com.example.weatherapp.domain.model.RegionModel
+import com.example.weatherapp.domain.model.WeatherModel
 import com.example.weatherapp.data.remote.WeatherRemoteDatasource
 import com.example.weatherapp.domain.repository.IWeatherRepository
 import javax.inject.Inject
