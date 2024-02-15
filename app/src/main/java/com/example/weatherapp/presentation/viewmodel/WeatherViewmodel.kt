@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.weatherapp.core.Constants
 import com.example.weatherapp.core.Resource
-import com.example.weatherapp.data.model.RegionModel
+import com.example.weatherapp.domain.model.RegionModel
 import com.example.weatherapp.domain.usecase.GetWeatherInformationUseCase
 import com.example.weatherapp.presentation.state.RegionState
 import com.example.weatherapp.presentation.state.WeatherState

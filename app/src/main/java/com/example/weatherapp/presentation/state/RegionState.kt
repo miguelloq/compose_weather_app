@@ -1,6 +1,6 @@
 package com.example.weatherapp.presentation.state
 
-import com.example.weatherapp.data.model.RegionModel
+import com.example.weatherapp.domain.model.RegionModel
 
 data class RegionState(
     val isLoading:Boolean = false,
