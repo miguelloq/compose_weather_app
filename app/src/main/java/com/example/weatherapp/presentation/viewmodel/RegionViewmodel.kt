@@ -10,10 +10,11 @@ import com.example.weatherapp.core.Constants
 import com.example.weatherapp.core.Resource
 import com.example.weatherapp.domain.usecase.GetRegionsInformationUseCase
 import com.example.weatherapp.presentation.state.RegionState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
-@RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
+@HiltViewModel
 class RegionViewmodel @Inject constructor(
     private val getRegionInformationUseCase: GetRegionsInformationUseCase,
     private val savedStateHandle: SavedStateHandle,

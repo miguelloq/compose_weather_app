@@ -85,4 +85,7 @@ dependencies {
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("androidx.work:work-runtime-ktx:2.8.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    //Material Design 3
+    implementation("androidx.compose.material3:material3:1.1.2")
 }

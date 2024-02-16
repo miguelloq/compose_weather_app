@@ -26,7 +26,7 @@ class GetWeatherInformationUseCase @Inject constructor(
         }catch (e:IOException){
             emit(Resource.Error<WeatherModel>("Ba2"))
         }catch (e:Exception){
-            emit(Resource.Error<WeatherModel>("Erro desconhecido poggers"))
+            emit(Resource.Error<WeatherModel>("unknown error"))
         }
     }
 }

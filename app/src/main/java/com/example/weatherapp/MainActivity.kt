@@ -13,6 +13,7 @@ import com.example.weatherapp.data.repository.WeatherRepositoryImpl
 import com.example.weatherapp.domain.repository.IWeatherRepository
 import com.example.weatherapp.domain.usecase.GetWeatherInformationUseCase
 import com.example.weatherapp.presentation.CustomScreens
+import com.example.weatherapp.presentation.screens.RegionSearchScreen
 import com.example.weatherapp.presentation.screens.WeatherScreen
 import com.example.weatherapp.presentation.ui.theme.WeatherAppTheme
 import com.example.weatherapp.presentation.viewmodel.WeatherViewmodel
@@ -38,6 +39,11 @@ class MainActivity : ComponentActivity() {
                             route = CustomScreens.WeatherScreen.route
                         ){
                             WeatherScreen(navController = navController)
+                        }
+                        composable(
+                            route = CustomScreens.RegionSearchScreen.route
+                        ){
+                            RegionSearchScreen(navController = navController)
                         }
                     }
                 }

@@ -15,16 +15,17 @@ class GetRegionsInformationUseCase @Inject constructor(
     private  val repository: IRegionRepository
 ) {
 
-    @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
     operator fun invoke(city:String): Flow<Resource<List<RegionModel>>> = flow{
         try {
             emit(Resource.Loading<List<RegionModel>>())
             val regions = repository.getRegionInformation(city)
             emit(Resource.Success<List<RegionModel>>(regions))
-        }catch (e:HttpException){
-            emit(Resource.Error<List<RegionModel>>("Aa"))
+        //}catch (e:HttpException){
+        //    emit(Resource.Error<List<RegionModel>>("Aa"))
         }catch (e:IOException){
             emit(Resource.Error<List<RegionModel>>("Aa2"))
+        }catch (e:Exception){
+            emit(Resource.Error<List<RegionModel>>("unknown error"))
         }
     }
 }
