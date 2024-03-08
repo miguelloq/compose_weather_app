@@ -16,7 +16,7 @@ import com.example.weatherapp.domain.model.WeatherModel
 fun WeatherContent(weather:WeatherModel, modifier: Modifier = Modifier) {
     Column(
         modifier,
-        verticalArrangement = Arrangement.SpaceAround,
+        verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         WeatherTitle(

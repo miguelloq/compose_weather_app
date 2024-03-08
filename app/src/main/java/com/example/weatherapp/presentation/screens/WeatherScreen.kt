@@ -27,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -66,23 +67,28 @@ fun WeatherScreen(
             )
         }
     ){
-        Box(Modifier.padding(paddingValues = it)
+        Box(Modifier
+            .fillMaxSize()
+            .padding(it)
+            .padding(24.dp)
+            .clip(shape = RoundedCornerShape(8.dp))
+            .shadow(
+                elevation = 10.dp,
+                spotColor = Color.White
+            )
+            .background(color = Color.DarkGray)
         ){
-            Surface(shadowElevation = 9.dp, modifier =
-            Modifier
-                .padding(16.dp)
-            ) {
                 if(state.isLoading){
                     CircularProgressIndicator(Modifier.align(Alignment.Center))
                 } else if (state.error.isNotBlank()){
                     Text("Erro encontrado. Erro: ${state.error}", Modifier.align(Alignment.Center))
                 } else if(state.weather!=null){
-                    WeatherContent(weather = state.weather, modifier = Modifier.fillMaxSize().padding(8.dp).background(color = Color.DarkGray))
+                    WeatherContent(weather = state.weather, modifier =
+                    Modifier.fillMaxSize().padding(top = 36.dp, bottom = 36.dp))
                 } else{
                     Text("Nenhuma informação encontrada sobre o clima", Modifier.align(Alignment.Center))
                 }
             }
-        }
     }
 
 }
